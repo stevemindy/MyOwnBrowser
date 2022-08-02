@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReChrome</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    #buttno{
+        box-shadow: 0 5px 15px;
+        position: absolute;
+        width: 100px;
+        height: 20px;
+        border-width: 1px;
+        border-radius: 35px;
+        transform: translateY(8vh);
+        font-size: 10px;
+        font-weight: lighter;
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+        transition: 0.2s;
+        }
+    #buttno:active{
+        font-size: 9px;
+        transition: 0.2s;
+    }
+    #test
+    {
+        position: absolute;
+        transform: translateX(-5.5vh);
+        transition: 1s;
+    }
+    #urlboxinput
+    {
+        border: 10px;
+        border-radius: 10px;
+        width: 300px;
+        height: 25px;
+    }
+    #searchbox
+    {
+        border: 10px;
+        border-radius: 10px;
+        width: 300px;
+        height: 25px;
+    }
+</style>
+<body background="BG.png">
+
+    <div class="navigation">
+        <ul>
+            <li class="list active" data-color="rgb(124, 111, 111)">
+                <a onclick="audio.play();" id="timeout" href="https://www.google.com" target="_blank">
+                    <span class="icon"><i class="fa-solid fa-house-chimney"></i></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li class="list" data-color="rgb(255, 0, 0)">
+                <a onclick="audio.play();" href="https://www.youtube.com" target="_blank">
+                    <span class="icon"><i class="fa-brands fa-youtube"></i></span>
+                    <span class="title">Youtube</span>
+                </a>
+            </li>
+            <li class="list" data-color="rgb(119, 0, 0)">
+                <a onclick="audio.play();" href="https://music.youtube.com" target="_blank">
+                    <span class="icon"><i class="fa-solid fa-music"></i></i></span>
+                    <span class="title">Youtube Music</span>
+                </a>
+            </li>
+            <li class="list" data-color="rgb(32, 166, 255)">
+                <a onclick="audio.play();" href="https://discord.com/channels/@me" target="_blank">
+                    <span class="icon"><i class="fa-brands fa-discord"></i></span>
+                    <span class="title">Discord</span>
+                </a>
+            </li>
+            <li class="list" data-color="rgb(34, 34, 34)">
+                <a onclick="audio.play();" href="https://www.roblox.com" target="_blank">
+                    <span class="icon"><i class="fa-solid fa-gamepad" target="_blank"></i></span>
+                    <span class="title">Roblox</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+    <div class="text"><h1>ReChrome!</h1></div>
+    <div class="inputbox"><input id="searchbox" type="text" placeholder="Search via google"></input></div>
+    <div class="urlbox"><input id="urlboxinput" type="text" placeholder="Enter URL Here"></input></div>
+    <a id="test" href="https://github.com/stevemindy" target="_blank">
+        <div class="btn" onclick="audio.play();"><button id="buttno">stevemindy's Github</button></div>
+    </a>
+
+    <script type="text/javascript">
+            const audio = new Audio();
+            audio.src = "./click.mp3";
+    </script>
+
+    <script type="text/javascript">
+        let input = document.querySelector('input');
+
+        input.addEventListener('keyup', (e) => {
+            if(e.keyCode === 13) {
+                console.log(e.target.value)
+                const stringtosearch = e.target.value
+                window.open("https://www.google.com/search?q="+ stringtosearch, "_self")
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+        let inputtext = document.getElementById("urlboxinput")
+
+        inputtext.addEventListener('keyup', (e) => {
+            if(e.keyCode === 13) {
+                console.log(e.target.value)
+                const stringtosearch = e.target.value
+                window.open("https://"+ stringtosearch, "_blank")
+            }
+        });
+    </script>
+
+    <!-- add active class on hovered item -->
+    <script>
+        let list = document.querySelectorAll("li");
+        for (let i=0; i<list.length; i++){
+            list[i].onmouseover = function(){
+                let j = 0;
+            while (j < list.length){
+                list[j++].className = 'list';
+            }
+            list[i].className = 'list active'
+            }
+        }
+
+        list.forEach(elements => {
+            elements.addEventListener('mouseenter',function(event){
+                let bg = document.querySelector('body');
+                let color = event.target.getAttribute('data-color');
+                bg.style.backgroundColor = color;
+            })
+        })
+    </script>
+</body>
+</html>
