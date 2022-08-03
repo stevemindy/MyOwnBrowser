@@ -35,16 +35,18 @@
     }
     #urlboxinput
     {
+        background-color: rgb(255, 164, 164);
         border: 10px;
-        border-radius: 10px;
-        width: 300px;
+        border-radius: 5px;
+        width: 600px;
         height: 25px;
     }
     #searchbox
     {
+        background-color: rgb(255, 164, 164);
         border: 10px;
-        border-radius: 10px;
-        width: 300px;
+        border-radius: 5px;
+        width: 600px;
         height: 25px;
     }
 </style>
@@ -82,6 +84,12 @@
                     <span class="title">Roblox</span>
                 </a>
             </li>
+            <li class="list" data-color="rgb(66,100,66)">
+                <a onclick="audio.play();" href="https://drive.google.com" target="_blank">
+                    <span class="icon"><i class="fa-brands fa-google-drive"></i></span>
+                    <span class="title">Drive</span>
+                </a>
+            </li>
             <div class="indicator"></div>
         </ul>
     </div>
@@ -91,7 +99,6 @@
     <a id="test" href="https://github.com/stevemindy" target="_blank">
         <div class="btn" onclick="audio.play();"><button id="buttno">stevemindy's Github</button></div>
     </a>
-
     <script type="text/javascript">
             const audio = new Audio();
             audio.src = "./click.mp3";
